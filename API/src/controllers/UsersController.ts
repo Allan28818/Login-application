@@ -23,8 +23,9 @@ class UsersController {
     if(!userAlreadyExists) {
       return response.status(401).json({ message: "user does not exists" })
     }
-    return response.json({
-      token: jwt.sign(user_name, 'secret')
+    return response.json({      
+      token: jwt.sign(user_name, 'secret'),
+      name: userAlreadyExists.first_name        
     });
   }
 
